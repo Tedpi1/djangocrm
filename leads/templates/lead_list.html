@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .lead{
+        padding: 10px;
+        border: 1px solid black;
+        margin: 10px;
+        border-radius: 5px;
+        background-color: #f4f4f4;
+        width: 30%;
+        margin-left: 20rem;
+    }
+</style>
+<body>
+    <a href="/leads/create/">Create A Lead</a>
+    <h1>This is all for our leads</h1>
+    {% for x in leads %}
+        <div class="lead">
+            <a href="/leads/{{x.id}}/">{{x.first_name}} {{x.last_name}}</a>
+        </div>
+    {% endfor %}
+</body>
+</html>
