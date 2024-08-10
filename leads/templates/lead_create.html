@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="/leads">Back</a>
+{% extends "base.html" %}
+{% block content %}
+<a href="{%url 'leads:lead-list' %}">Back</a>
     <hr>
     <h1>This is the form That will be Used to create Our Leads</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p}}
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+    <div class="form-group">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+{% endblock content %}
