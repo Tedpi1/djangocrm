@@ -18,15 +18,17 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
-from leads.views import landingPageView
-from django.contrib.auth.views import LoginView, LogoutView
+from leads.views import landingPageView, login_user, logout_user, SignupView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     path('', landingPageView.as_view(), name="landing_page"),
     path('leads/', include('leads.urls', namespace="leads")),
-    path('login/', LoginView.as_view(), name="login"),
-    path('login/', LogoutView.as_view(), name="login"),
-]
+    path('agents/', include('agents.urls', namespace="agents")),
+    path('login/', login_user, name="login"),
+    path('logout/', logout_user, name='logout'),
+    path('signup/', SignupView.as_view(), name="signup")
+] 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="flex items-center justify-center">
+            <button class="ml-8 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">SignUp</button>
+    </div>
+</form>
+{% endblock content %}
